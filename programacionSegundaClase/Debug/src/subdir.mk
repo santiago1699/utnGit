@@ -4,19 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/division.c \
-../src/programacionSegundaClase.c \
-../src/suma.c 
+../src/calculos.c \
+../src/programacionSegundaClase.c 
 
 C_DEPS += \
-./src/division.d \
-./src/programacionSegundaClase.d \
-./src/suma.d 
+./src/calculos.d \
+./src/programacionSegundaClase.d 
 
 OBJS += \
-./src/division.o \
-./src/programacionSegundaClase.o \
-./src/suma.o 
+./src/calculos.o \
+./src/programacionSegundaClase.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -31,7 +28,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/division.d ./src/division.o ./src/programacionSegundaClase.d ./src/programacionSegundaClase.o ./src/suma.d ./src/suma.o
+	-$(RM) ./src/calculos.d ./src/calculos.o ./src/programacionSegundaClase.d ./src/programacionSegundaClase.o
 
 .PHONY: clean-src
 

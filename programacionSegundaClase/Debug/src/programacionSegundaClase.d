@@ -1,6 +1,4 @@
 src/programacionSegundaClase.o: ../src/programacionSegundaClase.c \
- ../src/division.h ../src/suma.h
+ ../src/calculos.h
 
-../src/division.h:
-
-../src/suma.h:
+../src/calculos.h:

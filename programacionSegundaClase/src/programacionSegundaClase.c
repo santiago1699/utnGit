@@ -12,13 +12,12 @@
 #include <stdio_ext.h>
 #include <stdlib.h>
 
-#include "division.h"
-#include "suma.h"
+#include "calculos.h"
 
 
  //prototipo. Siempre se declaran arriba de las funciones para que sepan que vendra de ante mano
-int restarDosEnteros(int numeroUno, int numeroDos);
-int multiplicarDosEnteros(int numeroUno, int numeroDos);
+
+
 
 
 
@@ -29,8 +28,8 @@ int main(void) {
 	int numeroDos;
 	int resultado;
 	char operador;
-	int resultadoDivision;
-	int resultadoSuma;
+	int resultadoTotal;
+
 
 
 
@@ -49,64 +48,45 @@ int main(void) {
 	switch(operador)
 	{
 		case '+':
-				resultado = sumarDosEnteros(numeroUno, numeroDos, &resultadoSuma);
+				resultadoTotal = sumarDosEnteros(numeroUno, numeroDos, &resultado);
+
 		break;
 
 		case '-':
-			resultado = restarDosEnteros(numeroUno,numeroDos);
+			resultadoTotal = restarDosEnteros(numeroUno,numeroDos,&resultado);
 			break;
 
 		case '*':
-			resultado = multiplicarDosEnteros(numeroUno,numeroDos);
+			resultadoTotal = multiplicarDosEnteros(numeroUno,numeroDos, &resultado);
 			break;
 
 		case '/':
-			 resultado=dividirDosEnteros(numeroUno,numeroDos, &resultadoDivision);//division.h
+			 resultadoTotal=dividirDosEnteros(numeroUno,numeroDos, &resultado);//division.h
 
-			if(resultado == -1){
+			if(resultadoTotal == -1){
 				printf("\n no se puede dividir por 0 ");
 			}
-			if(resultado == -2)
+			if(resultadoTotal == -2)
 			{
 				printf("\n no puede ser mayor a 100 el primer numero");
 			}
 			break;
 
 
-	}
-	//printf("el resultado es: %d" , resultadoSuma);
-	printf("el resultado es : %d", resultado);
+	}// FIN DEL SWITCH
+
+			printf("el resultado es: %d" , resultado);
 
 
 	return 0;
-}
+}//FIN DE LA FUNCION
 
 
 
-		//funcion para RESTAR
-
-	int restarDosEnteros(int numeroUno, int numeroDos)
-	{
-		int resta;
-
-
-		resta= numeroUno-numeroDos;
-
-		return resta;
-	}
 
 
 
-	//funcion para MULTIPLICAR
 
-	int multiplicarDosEnteros(int numeroUno, int numeroDos)
-	{
-		int multiplicacion;
-
-		multiplicacion=numeroUno*numeroDos;
-
-		return multiplicacion;
-	}
 
 
 
