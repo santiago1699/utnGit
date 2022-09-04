@@ -22,12 +22,14 @@ int main(void) {
 	int numeroB;
 	int resultado;
 	int salioTodoBien;
-	int division;
+	float division;
 
 	numeroA=2;
 	numeroB=110;
 
 	//llamada de la funcion
+	printf("ingrese el primer numero: %d", numeroA);
+	printf("ingrese el segundo numero : %d", numeroB);
 	resultado = sumar(numeroA,numeroB);
 
 	printf("el resultado es %d", resultado);
@@ -53,7 +55,7 @@ int main(void) {
 		return retorno;
 	}
 
-	int dividirEnteros(int numeroUno, int, numeroDos, float *resultado)
+	int dividirEnteros(int numeroUno, int numeroDos, float *resultado)
 	{
 		int retorno;
 
