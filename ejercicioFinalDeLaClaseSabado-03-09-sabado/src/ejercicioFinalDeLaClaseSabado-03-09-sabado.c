@@ -23,8 +23,7 @@ Utilizar las funciones del punto anterior y desarrollar funciones para resolver 
 
 //PROTOTIPO
 int numeroEntero(int);//RETORNOS: int - float - char - void - void*
-//int ingresar10Valores(int);
-int promedioDeLosPositivos(int);
+int ingresar10Valores(void);
 /*
  * prototipos de int;
 int pedirNumero_float();
@@ -34,25 +33,19 @@ int pedirNumero_char();
 int main(void) {
 
 	int numero;
-	//int saberQueClaseDeEntero;
-	//int elIngresoDe10Numeros;
+	int elIngresoDe10Numeros;
 	int resultado;
-	int resultadoPromedio;
 
-	int i;
-	for(i=0;i<10;i++)
-	{
-		printf("ingrese los numeros: ");
-		scanf("%d",&numero);
-	}
+
 
 	resultado=numeroEntero(numero);
-	resultadoPromedio=promedioDeLosPositivos(numero);
+	elIngresoDe10Numeros=ingresar10Valores();
 	printf("%d \n", resultado);
-	printf("%d \n", resultadoPromedio);
+	printf("%d", elIngresoDe10Numeros);
 
 	return 0;
-}
+}//funcion principal
+
 
 	int numeroEntero(int numeroEntero)
 	{
@@ -76,34 +69,75 @@ int main(void) {
 		return retornamos;
 	}
 
-	//FUNCION INGRESAR 10 NUMEROS
-	/*int ingresar10Valores(int numero)
+
+	int ingresar10Valores(void)
 	{
 		int i;
-		for(i=0;i<10;i++)
-		{
-			printf("ingrese los numeros: ");
-			scanf("%d",&numero);
-		}
-		return i;
+		int ingresarNumero;
+		int promedio;
+		int contadorPositivos =0;
+		int acumuladorPositivos = 0;
+		int contadorCeros=0;
 
+		for (i=0;i<10;i++)
+		{
+			printf("ingrese un numero: ");
+			scanf("%d", &ingresarNumero);
+			if(ingresarNumero > 0)
+			{
+				contadorPositivos++;
+				acumuladorPositivos+=ingresarNumero;
+			}
+			else
+			{
+				if(ingresarNumero == 0)
+				{
+					contadorCeros++;
+				}
+
+			}
+		}//fin del for
+
+		promedio= acumuladorPositivos/contadorPositivos;
+
+		printf( " \n el promedio de los positivos es: %d", promedio);
+		printf(" \n la cantidad de ceros es: %d", contadorCeros);
+
+	};//termino ingresar10Valores
+
+
+	/*int ingresar10Valores(){
+		int ingresarNumero;
+		int promedio;
+		int contadorPositivos = 0;
+		int acumuladorPositivos = 0;
+		int contadorCeros = 0;
+
+		for(int i = 0; i < 10 ; i++){
+			printf("Ingrese un numero: ");
+			scanf("%d", &ingresarNumero);
+
+			if(ingresarNumero > 0)
+			{
+				contadorPositivos++;
+				acumuladorPositivos+= ingresarNumero;
+			}else
+			{
+				if(ingresarNumero == 0){
+					contadorCeros++;
+				}
+			}
+		}
+
+		promedio = acumuladorPositivos / contadorPositivos;
+
+		printf("\n El promedio de los positivos es: %d", promedio);
+		printf("\n La cantidad de ceros es: %d", contadorCeros);
 	}*/
 
-	int promedioDeLosPositivos(int numero)
-	{
-		int contadorNumero;
-		int acumuladorNumero;
-		int promedio;
-		contadorNumero=0;
-		acumuladorNumero=0;
-		if(numero>0)
-		{
-			contadorNumero++;
-			acumuladorNumero+=numero;
-		}
-		promedio=acumuladorNumero/contadorNumero;
-		return promedio;
-	}
+
+
+
 
 
 
