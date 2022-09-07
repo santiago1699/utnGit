@@ -14,10 +14,13 @@ Las funciones de transformación de fahrenheit a celsius y de celsius a fahrenhe
 #include <stdio.h>
 #include <stdlib.h>
 
-int validacionesDeTemperaturaFarenheit(int);
-int validacionesDeTemperaturasCelsius(int);
-int transformacionDeFarenheitACelcius(int);
-int transformacionDeCelsiusAFarenheit(int);
+#include "validacionCelsius.h"
+#include "validacionesFarenheit.h"
+
+#include "transformacionACelsius.h"
+#include "transformacionAFarenheit.h"
+
+
 
 int main(void) {
 
@@ -25,28 +28,49 @@ int main(void) {
 int numero;
 char tipoDeTemperatura;
 int resultado;
+int retornoValidacionFarenheit;
+int retornoValidacionCelsius;
 
-printf("que tipo de temperatura: f o c");
+printf("que tipo de temperatura f o c:  ");
 scanf("%c",&tipoDeTemperatura);
 while(tipoDeTemperatura!='f'&& tipoDeTemperatura!='c')
 {
-	printf("que tipo de temperatura: f o c");
+	printf("que tipo de temperatura f o c:  ");
 	scanf("%c",&tipoDeTemperatura);
 }
 
 
-printf("ingrese un numero: ");
-scanf("%d",numero);
+printf("ingrese un numero de temperatura:  ");
+scanf("%d",&numero);
 
 
 switch(tipoDeTemperatura)
 {
 case 'f':
+	retornoValidacionFarenheit=validacionesDeTemperaturaFarenheit(numero);
+	if(retornoValidacionFarenheit ==0)
+	{
 	resultado=transformacionDeFarenheitACelcius(numero);
+	printf("el numero tranformado a celisus es: %d", resultado);
+	}
+	else
+	{
+		printf("no devuelve temperatura, se excede de los rangos");
+	}
 	break;
 
 case 'c':
-	resultado=transformacionDeCelsiusAFarenheit(numero);
+	retornoValidacionCelsius=validacionesDeTemperaturasCelsius(numero);
+	if(retornoValidacionCelsius == 0)
+	{
+		resultado=transformacionDeCelsiusAFarenheit(numero);
+		printf("el numero transformado a farenheit es: %d",resultado);
+	}
+	else
+	{
+		printf("no devulve temperatura, se pasa de rangos");
+	}
+
 	break;
 }
 
@@ -54,58 +78,9 @@ case 'c':
 }
 
 
-int validacionesDeTemperaturaFarenheit(int numero)
-{
-	int tipoDeTemperatura;
-	if (numero<32 || numero > 212)
-	{
-		tipoDeTemperatura=numero;
-	}
-	else
-	{
-		tipoDeTemperatura=-1;
-	}
-
-	return tipoDeTemperatura;
-}
 
 
 
-int validacionesDeTemperaturasCelsius(int numero)
-{
-	//int temperatura;
-	int tipoDeTemperatura;
-
-	//printf("ingrese temperatura");
-	scanf("%d", numero);
-
-	if (numero <1 || numero > 99)
-	{
-		tipoDeTemperatura=numero;
-	}
-	else
-	{
-		tipoDeTemperatura=-1;
-	}
-
-	return tipoDeTemperatura;
-}
-
-
-
-int transformacionDeFarenheitACelcius(int numero)
-{
-	int celsius;
-	celsius=(numero - 32)*5/9;
-	return celsius;
-}
-
-int transformacionDeCelsiusAFarenheit(int numero)
-{
-	int farenheit;
-	farenheit=(numero*9/5)+32;
-	return farenheit;
-}
 
 
 
