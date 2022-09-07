@@ -46,14 +46,9 @@ case 'f':
 	break;
 
 case 'c':
-	resultado=transformacionDeCelsiusAFarenhei(numero);
+	resultado=transformacionDeCelsiusAFarenheit(numero);
 	break;
 }
-
-
-
-
-
 
 	return 0;
 }
@@ -78,10 +73,10 @@ int validacionesDeTemperaturaFarenheit(int numero)
 
 int validacionesDeTemperaturasCelsius(int numero)
 {
-	int temperatura;
+	//int temperatura;
 	int tipoDeTemperatura;
 
-	printf("ingrese temperatura");
+	//printf("ingrese temperatura");
 	scanf("%d", numero);
 
 	if (numero <1 || numero > 99)
@@ -95,6 +90,8 @@ int validacionesDeTemperaturasCelsius(int numero)
 
 	return tipoDeTemperatura;
 }
+
+
 
 int transformacionDeFarenheitACelcius(int numero)
 {
