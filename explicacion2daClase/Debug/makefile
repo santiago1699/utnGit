@@ -23,7 +23,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := explicacion
+BUILD_ARTIFACT_NAME := explicacion2daClase
 BUILD_ARTIFACT_EXTENSION :=
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -34,19 +34,19 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 all: main-build
 
 # Main-build Target
-main-build: explicacion
+main-build: explicacion2daClase
 
 # Tool invocations
-explicacion: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+explicacion2daClase: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc  -o "explicacion" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc  -o "explicacion2daClase" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) explicacion
+	-$(RM) explicacion2daClase
 	-@echo ' '
 
 .PHONY: all clean dependents main-build
